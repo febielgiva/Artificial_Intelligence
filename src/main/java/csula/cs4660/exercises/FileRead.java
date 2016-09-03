@@ -1,6 +1,9 @@
 package csula.cs4660.exercises;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * Introduction Java exercise to read file
@@ -13,6 +16,47 @@ public class FileRead {
      */
     public FileRead(File file) {
         // TODO: read the file content and store content into numbers
+    
+    	BufferedReader br = null;
+
+        try {
+    	
+        	BufferedReader buffer = new BufferedReader(new FileReader(file));
+
+            String line;
+            int row = 0;
+            int size = 0;
+
+            while ((line = buffer.readLine()) != null) {
+            	//System.out.println(line);
+                String[] vals = line.trim().split("\\s+");
+
+                // Lazy instantiation.
+                if (numbers == null) {
+                    size = vals.length;
+                    numbers = new int[size][size];
+                }
+
+                for (int col = 0; col < size; col++) {
+                	numbers[row][col] = Integer.parseInt(vals[col]);
+                }
+
+                row++;
+            }
+
+
+        	    
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null)br.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    
     }
 
     /**
@@ -23,18 +67,40 @@ public class FileRead {
      * lineNumber starts with 0 (programming friendly!)
      */
     public int mean(int lineNumber) {
-        return 0;
+    	
+    	int sum= 0;
+    	for(int i:numbers[lineNumber]){
+    		sum = sum+i;	
+    	}
+		return sum/numbers[lineNumber].length;
     }
 
     public int max(int lineNumber) {
-        return 0;
+    	int max= 0;
+    	for(int i:numbers[lineNumber]){
+    		if(max<i){
+    			max = i;
+    		}
+    	}
+		return max;
     }
 
     public int min(int lineNumber) {
-        return 0;
+    	int min= 0;
+    	for(int i:numbers[lineNumber]){
+    		if(min>i){
+    			min = i;
+    		}
+    	}
+		return min;
     }
 
     public int sum(int lineNumber) {
-        return 0;
+    	int sum= 0;
+    	for(int i:numbers[lineNumber]){
+    		sum = sum+i;	
+    	}
+		return sum;
     }
 }
+
