@@ -71,7 +71,7 @@ public class AdjacencyMatrixTest {
         );
         assertEquals(
             "Test graph 1 neighbors for node 4",
-            Lists.newArrayList(new Node(5), new Node(7)),
+            Lists.newArrayList(new Node(7),new Node(5)),
             graph1.neighbors(new Node(4))
         );
         assertEquals(
@@ -141,7 +141,7 @@ public class AdjacencyMatrixTest {
             graph1.addEdge(new Edge(new Node(1), new Node(2), 1))
         );
     }
-
+    
     @Test
     public void testGraph1RemoveEdge() {
         assertFalse(
