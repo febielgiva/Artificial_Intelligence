@@ -9,12 +9,10 @@
     <persistedState key="isRestored" value="true"/>
     <persistedState key="show_in_time" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;show_in_time/>"/>
     <persistedState key="workingSets" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workingSets/>"/>
-    <persistedState key="aggregateWorkingSetId"/>
+    <persistedState key="aggregateWorkingSetId" value="Aggregate for window 1473584922154"/>
     <tags>topLevel</tags>
     <children xsi:type="basic:PartSashContainer" xmi:id="_ossi0nRWEeaZ8eOO5DT7Uw" selectedElement="_ostJ4XRWEeaZ8eOO5DT7Uw" horizontal="true">
-      <children xsi:type="advanced:PerspectiveStack" xmi:id="_ostJ4HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.ide.perspectivestack" visible="false" containerData="7500" selectedElement="_pG0TAHRWEeaZ8eOO5DT7Uw">
-        <tags>Minimized</tags>
-        <tags>MinimizedByZoom</tags>
+      <children xsi:type="advanced:PerspectiveStack" xmi:id="_ostJ4HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.ide.perspectivestack" containerData="7500" selectedElement="_pG0TAHRWEeaZ8eOO5DT7Uw">
         <children xsi:type="advanced:Perspective" xmi:id="_pG0TAHRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.jst.j2ee.J2EEPerspective" selectedElement="_pG0TAXRWEeaZ8eOO5DT7Uw" label="Java EE" iconURI="platform:/plugin/org.eclipse.jst.j2ee.ui/icons/full/cview16/j2ee_perspective.gif">
           <persistedState key="persp.hiddenItems" value="persp.hideToolbarSC:org.eclipse.debug.ui.commands.RunToLine,persp.hideToolbarSC:org.eclipse.jdt.ui.actions.OpenProjectWizard,persp.hideToolbarSC:print,persp.hideToolbarSC:org.eclipse.ui.edit.text.toggleShowSelectedElementOnly,"/>
           <tags>persp.actionSet:org.eclipse.mylyn.doc.actionSet</tags>
@@ -72,6 +70,7 @@
           <tags>persp.newWizSC:org.eclipse.m2e.core.wizards.Maven2ProjectWizard</tags>
           <tags>persp.showIn:org.eclipse.tm.terminal.view.ui.TerminalsView</tags>
           <tags>persp.actionSet:org.eclipse.wst.ws.explorer.explorer</tags>
+          <tags>persp.actionSet:org.springsource.ide.eclipse.gradle.ui.global</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_pG0TAXRWEeaZ8eOO5DT7Uw" selectedElement="_pG0TAnRWEeaZ8eOO5DT7Uw" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_pG0TAnRWEeaZ8eOO5DT7Uw" elementId="topLeft" containerData="2500" selectedElement="_pG0TA3RWEeaZ8eOO5DT7Uw">
               <children xsi:type="advanced:Placeholder" xmi:id="_pG0TA3RWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_pGUjwHRWEeaZ8eOO5DT7Uw"/>
@@ -106,7 +105,6 @@
       </children>
       <children xsi:type="basic:PartStack" xmi:id="_ostJ4XRWEeaZ8eOO5DT7Uw" elementId="stickyFolderRight" containerData="2500" selectedElement="_ostJ43RWEeaZ8eOO5DT7Uw">
         <tags>active</tags>
-        <tags>Maximized</tags>
         <children xsi:type="advanced:Placeholder" xmi:id="_ostJ4nRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.help.ui.HelpView" toBeRendered="false" ref="_osqtoHRWEeaZ8eOO5DT7Uw"/>
         <children xsi:type="advanced:Placeholder" xmi:id="_ostJ43RWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.internal.introview" ref="_ossi0HRWEeaZ8eOO5DT7Uw"/>
         <children xsi:type="advanced:Placeholder" xmi:id="_ostJ5HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.cheatsheets.views.CheatSheetView" toBeRendered="false" ref="_ossi0XRWEeaZ8eOO5DT7Uw"/>
@@ -147,7 +145,7 @@
     <sharedElements xsi:type="basic:Part" xmi:id="_pGUjwHRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.gif" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="org.eclipse.ui.navigator.resources.ProjectExplorer"/>
       <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.ui.navigator.resources"/>
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;/>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; currentWorkingSetName=&quot;Aggregate for window 1473584922154&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_pMjHkHRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.navigator.ProjectExplorer">
@@ -271,7 +269,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o44ksHRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_o5C8wHRWEeaZ8eOO5DT7Uw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_n3y7MnRWEeaZ8eOO5DT7Uw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_U1A08Hf_EearHaikn8Ljtg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_n3y7MnRWEeaZ8eOO5DT7Uw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o44ksXRWEeaZ8eOO5DT7Uw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -298,7 +296,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o45LwnRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_o5Ex8HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_n3xtK3RWEeaZ8eOO5DT7Uw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_U1FtcHf_EearHaikn8Ljtg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_n3xtK3RWEeaZ8eOO5DT7Uw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_o45Lw3RWEeaZ8eOO5DT7Uw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -332,8 +330,8 @@
         <tags>Draggable</tags>
       </children>
     </trimBars>
-    <trimBars xmi:id="_pDSd4HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.trim.vertical1" side="Left">
-      <children xsi:type="menu:ToolControl" xmi:id="_pr4H4HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.ide.perspectivestack(minimized)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+    <trimBars xmi:id="_pDSd4HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.trim.vertical1" toBeRendered="false" side="Left">
+      <children xsi:type="menu:ToolControl" xmi:id="_pr4H4HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.ide.perspectivestack(minimized)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
         <tags>Draggable</tags>
       </children>
@@ -542,6 +540,8 @@
     </bindings>
     <bindings xmi:id="_n5IX53RWEeaZ8eOO5DT7Uw" keySequence="ALT+SHIFT+Q Q" command="_n3xF8nRWEeaZ8eOO5DT7Uw"/>
     <bindings xmi:id="_n5IX6HRWEeaZ8eOO5DT7Uw" keySequence="ALT+SHIFT+X X" command="_n3vQwHRWEeaZ8eOO5DT7Uw"/>
+    <bindings xmi:id="_Uay-IHf_EearHaikn8Ljtg" keySequence="ALT+CTRL+SHIFT+R" command="_UZ4_MHf_EearHaikn8Ljtg"/>
+    <bindings xmi:id="_Ua0MQHf_EearHaikn8Ljtg" keySequence="CTRL+F5" command="_UZ5mQHf_EearHaikn8Ljtg"/>
   </bindingTables>
   <bindingTables xmi:id="_n4wkcnRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.tm.terminal.TerminalContext" bindingContext="_n4A9vHRWEeaZ8eOO5DT7Uw">
     <bindings xmi:id="_n4wkc3RWEeaZ8eOO5DT7Uw" keySequence="ALT+D" command="_n3up2XRWEeaZ8eOO5DT7Uw"/>
@@ -891,6 +891,7 @@
   <bindingTables xmi:id="_pGSulXRWEeaZ8eOO5DT7Uw" bindingContext="_pGSulHRWEeaZ8eOO5DT7Uw"/>
   <bindingTables xmi:id="_pGSul3RWEeaZ8eOO5DT7Uw" bindingContext="_pGSulnRWEeaZ8eOO5DT7Uw"/>
   <bindingTables xmi:id="_pGSumXRWEeaZ8eOO5DT7Uw" bindingContext="_pGSumHRWEeaZ8eOO5DT7Uw"/>
+  <bindingTables xmi:id="_UyJuMXf_EearHaikn8Ljtg" bindingContext="_UyJuMHf_EearHaikn8Ljtg"/>
   <rootContext xmi:id="_n2Fq9HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.platform" name="In Dialogs and Windows" description="Either a dialog or a window is open">
     <children xmi:id="_n2Fq9XRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.platform" name="In Windows" description="A window is open">
       <children xmi:id="_n2Fq9nRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.e4.ui.contexts.views" contributorURI="platform:/plugin/org.eclipse.platform" name="%bindingcontext.name.bindingView"/>
@@ -1011,6 +1012,7 @@
   <rootContext xmi:id="_pGSulHRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" name="Auto::org.eclipse.wst.server.ui.internal.webbrowser.actionSet"/>
   <rootContext xmi:id="_pGSulnRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.wst.web.ui.wizardsActionSet" name="Auto::org.eclipse.wst.web.ui.wizardsActionSet"/>
   <rootContext xmi:id="_pGSumHRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.wst.ws.explorer.explorer" name="Auto::org.eclipse.wst.ws.explorer.explorer"/>
+  <rootContext xmi:id="_UyJuMHf_EearHaikn8Ljtg" elementId="org.springsource.ide.eclipse.gradle.ui.global" name="Auto::org.springsource.ide.eclipse.gradle.ui.global"/>
   <descriptors xmi:id="_n9c3MHRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.e4.ui.compatibility.editor" allowMultiple="true" category="org.eclipse.e4.primaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor">
     <tags>Editor</tags>
   </descriptors>
@@ -1559,6 +1561,12 @@
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.wst.xsl.ui"/>
     <tags>View</tags>
     <tags>categoryTag:XML</tags>
+  </descriptors>
+  <descriptors xmi:id="_UeSXAHf_EearHaikn8Ljtg" elementId="org.springsource.ide.eclipse.gradle.ui.views.GradleTasksView" label="Gradle Tasks" iconURI="platform:/plugin/org.springsource.ide.eclipse.gradle.ui.taskview/icons/gradle-icon-16.png" tooltip="" category="Gradle (STS)" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <persistedState key="originalCompatibilityViewClass" value="org.springsource.ide.eclipse.gradle.ui.taskview.GradleTasksView"/>
+    <persistedState key="originalCompatibilityViewBundle" value="org.springsource.ide.eclipse.gradle.ui.taskview"/>
+    <tags>View</tags>
+    <tags>categoryTag:Gradle (STS)</tags>
   </descriptors>
   <menuContributions xmi:id="_n2Fq-HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.window.customizePerspective" contributorURI="platform:/plugin/org.eclipse.platform" positionInParent="popup:toolbar">
     <children xsi:type="menu:HandledMenuItem" xmi:id="_n2GSAHRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.window.customizePerspective" contributorURI="platform:/plugin/org.eclipse.platform" label="%command.name.customize" command="_n2GSAXRWEeaZ8eOO5DT7Uw"/>
@@ -2812,6 +2820,8 @@
   <commands xmi:id="_or_YNHRWEeaZ8eOO5DT7Uw" elementId="AUTOGEN:::variableViewActions/org.eclipse.wst.jsdt.debug.ui.variableview.show.this" commandName="Show 'this' variable" description="Show or hide the this variable" category="_n3k42XRWEeaZ8eOO5DT7Uw"/>
   <commands xmi:id="_or__QHRWEeaZ8eOO5DT7Uw" elementId="AUTOGEN:::variableViewActions/org.eclipse.wst.jsdt.debug.ui.variableview.show.prototypes" commandName="Show proto variables" description="Show or hide proto variables" category="_n3k42XRWEeaZ8eOO5DT7Uw"/>
   <commands xmi:id="_or__QXRWEeaZ8eOO5DT7Uw" elementId="AUTOGEN:::org.eclipse.ui.articles.action.contribution.view/org.eclipse.wst.wsi.ui.internal.actions.actionDelegates.ValidateWSIProfileActionDelegate" commandName="WS-I Profile Validator" description="Validate WS-I Message Log File" category="_n3k42XRWEeaZ8eOO5DT7Uw"/>
+  <commands xmi:id="_UZ4_MHf_EearHaikn8Ljtg" elementId="org.springsource.ide.eclipse.gradle.ui.OpenTasksQuickLauncher" commandName="Open Gradle (STS) Tasks Quick Launcher" description="Open Gradle tasks quick launcher dialog" category="_UZ4YIHf_EearHaikn8Ljtg"/>
+  <commands xmi:id="_UZ5mQHf_EearHaikn8Ljtg" elementId="org.springsource.ide.eclipse.gradle.ui.refresh.all" commandName="Refresh All" description="Refresh All both dependecies and source folders for selected gradle project" category="_UZ4YIHf_EearHaikn8Ljtg"/>
   <addons xmi:id="_n2GSAnRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_n2GSA3RWEeaZ8eOO5DT7Uw" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_n2GSBHRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -2823,7 +2833,7 @@
   <addons xmi:id="_n2GSCnRWEeaZ8eOO5DT7Uw" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_n2GSC3RWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_n2eFcHRWEeaZ8eOO5DT7Uw" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_UbVJoHf_EearHaikn8Ljtg" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_n3kRoHRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_n3kRoXRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
@@ -2873,4 +2883,5 @@
   <categories xmi:id="_n3k42HRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.oomph.commands" name="Oomph"/>
   <categories xmi:id="_n3k42XRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.core.commands.categories.autogenerated" name="Uncategorized" description="Commands that were either auto-generated or have no category"/>
   <categories xmi:id="_n3k42nRWEeaZ8eOO5DT7Uw" elementId="org.eclipse.wst.jsdt.ui.category.refactoring" name="Refactor - JavaScript" description="JavaScript Refactoring Actions"/>
+  <categories xmi:id="_UZ4YIHf_EearHaikn8Ljtg" elementId="org.springsource.ide.eclipse.gradle.ui.commands" name="Gradle (STS) Tools"/>
 </application:Application>

@@ -136,7 +136,6 @@ public class AdjacencyList implements Representation {
 
 					}
 				}
-				adjacencyList.put(key, value);
 			}
 
 			return true;

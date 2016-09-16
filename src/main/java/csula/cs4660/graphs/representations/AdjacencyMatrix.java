@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -105,6 +106,8 @@ public class AdjacencyMatrix implements Representation {
 	@Override
 	public List<Node> neighbors(Node x) {
 		System.out.println("neighboors");
+		int count=0;
+		int expectedNodeData[] = new int[nodes.length] ;
 		int indexOfMainNode = ArrayUtils.indexOf(nodes,x);
 //		System.out.println("index of node = "+ x +"index"+indexOfMainNode);
 		List<Node> expectedNodes= new ArrayList<Node>();
@@ -112,8 +115,14 @@ public class AdjacencyMatrix implements Representation {
 //			System.out.println(adjacencyMatrix[indexOfMainNode][i] + "     ");
 			if(adjacencyMatrix[indexOfMainNode][i] != 0){
 //				System.out.println(i+"   "+adjacencyMatrix[indexOfMainNode][i]+"    "+nodes[i].getData());
-			 	expectedNodes.add(new Node(nodes[i].getData()));
+				expectedNodeData[count++]=(int) nodes[i].getData();
+				//expectedNodes.add(new Node(nodes[i].getData()));
 			}
+		}
+		int[] nodes = Arrays.copyOf(expectedNodeData, count);
+		Arrays.sort(nodes);
+		for (int i = 0; i < count; i++) {
+			expectedNodes.add(new Node(nodes[i]));
 		}
 		return expectedNodes;
 	}
