@@ -152,16 +152,20 @@ public class AdjacencyList implements Representation {
 		if(adjacencyList.containsKey(x.getFrom())){
 			System.out.println(x.getFrom());
 			Collection<Edge> collectionOfEdge = adjacencyList.get(x.getFrom());
-			for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
-				Edge edge = (Edge) iterator.next();
-				System.out.println(edge.getFrom() +" "+ edge.getTo());
-				//if edge exits
-				if(edge.getTo().equals(x.getTo())){
-					System.out.println("return false");
-					flag = false;
-					return false;
-				}
+			if(collectionOfEdge.contains(x)){
+				flag = false;
+				return false;
 			}
+//			for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
+//				Edge edge = (Edge) iterator.next();
+//				System.out.println(edge.getFrom() +" "+ edge.getTo());
+//				//if edge exits
+//				if(edge.getTo().equals(x.getTo())){
+//					System.out.println("return false");
+//					flag = false;
+//					return false;
+//				}
+//			}
 			//no edge exist so add
 			if(flag){	
 				if(adjacencyList.containsKey(x.getTo()))
@@ -190,16 +194,21 @@ public class AdjacencyList implements Representation {
 	public boolean removeEdge(Edge x) {
 		if(adjacencyList.containsKey(x.getFrom())){
 			Collection<Edge> collectionOfEdge = adjacencyList.get(x.getFrom());
-			for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
-				Edge edge = (Edge) iterator.next();
-				System.out.println(edge.getFrom() +" "+ edge.getTo());
-				//if edge exits so remove
-				if(edge.getTo().equals(x.getTo())){
-					iterator.remove();
-					adjacencyList.put(x.getFrom(),collectionOfEdge);
-					return true;
-				}
+			if(collectionOfEdge.contains(x)){
+				collectionOfEdge.remove(x);
+				adjacencyList.put(x.getFrom(),collectionOfEdge);
+				return true;
 			}
+//			for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
+//				Edge edge = (Edge) iterator.next();
+//				System.out.println(edge.getFrom() +" "+ edge.getTo());
+//				//if edge exits so remove
+//				if(edge.getTo().equals(x.getTo())){
+//					iterator.remove();
+//					adjacencyList.put(x.getFrom(),collectionOfEdge);
+//					return true;
+//				}
+//			}
 		}
 		return false;
 	}
