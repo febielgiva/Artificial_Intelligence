@@ -134,10 +134,19 @@ public class AdjacencyMatrix implements Representation {
 			Node[] oldNodes = nodes;
 			nodes = Arrays.copyOf(oldNodes, oldNodes.length+1);
 			nodes[nodes.length-1] = x;
-
+			
+			
 			int[][] oldAdjacencyMatrix = adjacencyMatrix;
-			adjacencyMatrix=new int[oldAdjacencyMatrix.length+1][oldAdjacencyMatrix.length+1];
-			adjacencyMatrix=Arrays.copyOf(oldAdjacencyMatrix, oldAdjacencyMatrix.length);
+  			adjacencyMatrix=new int[oldAdjacencyMatrix.length+1][oldAdjacencyMatrix.length+1];
+ 			for(int i =0;i<oldAdjacencyMatrix.length;i++){
+ 				for(int j =0;j<oldAdjacencyMatrix.length;j++){
+ 					adjacencyMatrix[i][j] = oldAdjacencyMatrix[i][j];
+ 				}
+			}
+
+//			int[][] oldAdjacencyMatrix = adjacencyMatrix;
+//			adjacencyMatrix=new int[oldAdjacencyMatrix.length+1][oldAdjacencyMatrix.length+1];
+//			adjacencyMatrix=Arrays.copyOf(oldAdjacencyMatrix, oldAdjacencyMatrix.length);
 		
 ////			int array[] = new int[adjacencyMatrix.length];
 //			for(int i = 0;i<adjacencyMatrix.length;i++){
