@@ -23,6 +23,7 @@ import java.util.Optional;
  * TODO: please implement the method body
  */
 public class AdjacencyList implements Representation {
+
 	private Map<Node, Collection<Edge>> adjacencyList;
 
 	public AdjacencyList(File file) {
@@ -72,9 +73,9 @@ public class AdjacencyList implements Representation {
 		}
 	}
 
-	public AdjacencyList() {
+	protected AdjacencyList() {
 
-	}
+    }
 
 	@Override
 	public boolean adjacent(Node x, Node y) {
@@ -222,4 +223,5 @@ public class AdjacencyList implements Representation {
 	public Optional<Node> getNode(int index) {
 		return null;
 	}
+    
 }
