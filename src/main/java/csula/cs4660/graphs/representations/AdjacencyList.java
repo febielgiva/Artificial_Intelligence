@@ -1,5 +1,6 @@
 package csula.cs4660.graphs.representations;
 
+import csula.cs4660.games.models.Tile;
 import csula.cs4660.graphs.Edge;
 import csula.cs4660.graphs.Node;
 
@@ -74,19 +75,22 @@ public class AdjacencyList implements Representation {
 	}
 
 	protected AdjacencyList() {
-
-    }
+		adjacencyList= new HashMap<Node,Collection<Edge>>();
+	}
 
 	@Override
 	public boolean adjacent(Node x, Node y) {
 
 		if(adjacencyList.containsKey(x)){
+			//System.out.println("node x is present" + x.getData() + y.getData());
 			Collection< Edge > collectionOfEdge = new ArrayList<Edge>();
 			collectionOfEdge = adjacencyList.get(x);
-			for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
-				Edge edge = (Edge) iterator.next();
-				if(edge.getTo().equals(y)){
-					return true;
+			if(collectionOfEdge != null){
+				for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
+					Edge edge = (Edge) iterator.next();
+					if(edge.getTo().equals(y)){
+						return true;
+					}
 				}
 			}
 			return false;
@@ -101,11 +105,14 @@ public class AdjacencyList implements Representation {
 
 		List<Node> expectedList= new ArrayList<Node>();
 		if(adjacencyList.containsKey(x)){
-			Collection< Edge > collectionOfEdge = new ArrayList<Edge>();
+			//System.out.println("x is present");
+			Collection<Edge> collectionOfEdge = new ArrayList<Edge>();
 			collectionOfEdge = adjacencyList.get(x);
-			for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
-				Edge edge = (Edge) iterator.next();
-				expectedList.add(edge.getTo());
+			if(collectionOfEdge != null){
+				for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
+					Edge edge = (Edge) iterator.next();
+					expectedList.add(edge.getTo());
+				}
 			}
 		}
 
@@ -114,12 +121,14 @@ public class AdjacencyList implements Representation {
 
 	@Override
 	public boolean addNode(Node x) {
-		if(adjacencyList.containsKey(x)){
-			return false;
-		}
-		else{
+
+		if((!adjacencyList.containsKey(x)) || (adjacencyList.equals(null))){
 			adjacencyList.put(x, null);
 			return true;
+		}
+		else{
+
+			return false;
 		}
 	}
 
@@ -147,39 +156,87 @@ public class AdjacencyList implements Representation {
 
 	}
 
+
 	@Override
 	public boolean addEdge(Edge x) {
-		boolean flag = true;
+
 		if(adjacencyList.containsKey(x.getFrom())){
-			System.out.println(x.getFrom());
+//			Tile tile = (Tile) x.getFrom().getData();
+//			System.out.println("from node is present" + tile.getType()+" "+tile.getX() +" "+ tile.getY());
+//			System.out.println("to node is present" + x.getTo());
+
 			Collection<Edge> collectionOfEdge = adjacencyList.get(x.getFrom());
+			if(collectionOfEdge !=null){
+				if(collectionOfEdge.contains(x)){
+					return false;
+				}
+				else{
+					collectionOfEdge.add(x);
+					adjacencyList.put(x.getFrom(), collectionOfEdge);
+					return true;
+
+				}
+			}
+			else{
+
+				collectionOfEdge = new ArrayList<Edge>();
+				collectionOfEdge.add(x);
+				adjacencyList.put(x.getFrom(), collectionOfEdge);
+				return true;
+
+			}
+
+		}
+		return false;
+
+	}
+
+
+	/*
+	 * boolean flag = true;
+		if(adjacencyList.containsKey(x.getFrom())){
+			//System.out.println(x.getFrom());
+			Collection<Edge> collectionOfEdge = adjacencyList.get(x.getFrom());
+			if(collectionOfEdge !=null){
 			if(collectionOfEdge.contains(x)){
 				flag = false;
 				return false;
 			}
-//			for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
-//				Edge edge = (Edge) iterator.next();
-//				System.out.println(edge.getFrom() +" "+ edge.getTo());
-//				//if edge exits
-//				if(edge.getTo().equals(x.getTo())){
-//					System.out.println("return false");
-//					flag = false;
-//					return false;
-//				}
-//			}
+			}
+			//			for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
+			//				Edge edge = (Edge) iterator.next();
+			//				System.out.println(edge.getFrom() +" "+ edge.getTo());
+			//				//if edge exits
+			//				if(edge.getTo().equals(x.getTo())){
+			//					System.out.println("return false");
+			//					flag = false;
+			//					return false;
+			//				}
+			//			}
 			//no edge exist so add
 			if(flag){	
 				if(adjacencyList.containsKey(x.getTo()))
-				{	System.out.println("return true getTO already prsent");
+				{	
+				//System.out.println("return true getTO already prsent");
 				collectionOfEdge = adjacencyList.get(x.getFrom());
-				collectionOfEdge.add(x);
+				if(collectionOfEdge !=null)
+					collectionOfEdge.add(x);
+				else{
+					collectionOfEdge = new ArrayList<Edge>();
+					collectionOfEdge.add(x);
+				}
 				adjacencyList.put(x.getFrom(), collectionOfEdge);
 				return true;
 				}
 				else{
-					System.out.println("return true getTO not already prsent");
+					//System.out.println("return true getTO not already prsent");
 					collectionOfEdge = adjacencyList.get(x.getFrom());
-					collectionOfEdge.add(x);
+					if(collectionOfEdge !=null)
+						collectionOfEdge.add(x);
+					else{
+						collectionOfEdge = new ArrayList<Edge>();
+						collectionOfEdge.add(x);
+					}
 					adjacencyList.put(x.getFrom(), collectionOfEdge);
 					adjacencyList.put(x.getTo(),null);
 					return true;
@@ -189,7 +246,8 @@ public class AdjacencyList implements Representation {
 		}
 
 		return false;
-	}
+	 */
+
 
 	@Override
 	public boolean removeEdge(Edge x) {
@@ -200,28 +258,39 @@ public class AdjacencyList implements Representation {
 				adjacencyList.put(x.getFrom(),collectionOfEdge);
 				return true;
 			}
-//			for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
-//				Edge edge = (Edge) iterator.next();
-//				System.out.println(edge.getFrom() +" "+ edge.getTo());
-//				//if edge exits so remove
-//				if(edge.getTo().equals(x.getTo())){
-//					iterator.remove();
-//					adjacencyList.put(x.getFrom(),collectionOfEdge);
-//					return true;
-//				}
-//			}
+			//			for (Iterator iterator = collectionOfEdge.iterator(); iterator.hasNext();) {
+			//				Edge edge = (Edge) iterator.next();
+			//				System.out.println(edge.getFrom() +" "+ edge.getTo());
+			//				//if edge exits so remove
+			//				if(edge.getTo().equals(x.getTo())){
+			//					iterator.remove();
+			//					adjacencyList.put(x.getFrom(),collectionOfEdge);
+			//					return true;
+			//				}
+			//			}
 		}
 		return false;
 	}
 
 	@Override
 	public int distance(Node from, Node to) {
+
+		if(adjacencyList.containsKey(from)){
+			Collection<Edge> collectionOfEdge = adjacencyList.get(from);
+			for (Edge edge : collectionOfEdge) {
+				if((edge.getFrom().equals(from)) &&(edge.getTo().equals(to))){
+					return edge.getValue();
+				}
+			}
+		}
 		return 0;
 	}
 
 	@Override
 	public Optional<Node> getNode(int index) {
-		return null;
+		List<Node> keys = new ArrayList<Node>(adjacencyList.keySet());		
+		Node node = keys.get(index);
+	    return Optional.of(node);
 	}
-    
+
 }
