@@ -250,7 +250,8 @@ public class AdjacencyMatrix implements Representation {
 
 	@Override
 	public int distance(Node from, Node to) {
-		return 0;
+		return adjacencyMatrix[ArrayUtils.indexOf(nodes,from)][ArrayUtils.indexOf(nodes,to)];
+
 	}
 
 	@Override

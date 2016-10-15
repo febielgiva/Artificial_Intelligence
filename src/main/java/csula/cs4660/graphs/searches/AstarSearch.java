@@ -23,7 +23,7 @@ public class AstarSearch implements SearchStrategy {
     @Override
     public List<Edge> search(Graph graph, Node source, Node dist) {   
     	List<Node> frontier = new ArrayList<Node>();
-    	frontier = graph.neighbors(new);
+    	//frontier = graph.neighbors(new);
     	Tile tile ;
     	tile = (Tile) source.getData();
     	for (Node node : frontier) {
