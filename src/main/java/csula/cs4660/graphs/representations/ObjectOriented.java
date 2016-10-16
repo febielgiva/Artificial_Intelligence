@@ -26,8 +26,9 @@ import java.util.Optional;
 public class ObjectOriented implements Representation {
 	private Collection<Node> nodes;
 	private Collection<Edge> edges;
-	
 	private Map<Node, Collection<Edge>> hashMap = new HashMap<Node,Collection<Edge>>();
+
+
 	public ObjectOriented(File file) {
 		nodes = new HashSet<Node>();
 		edges = new ArrayList<Edge>();
