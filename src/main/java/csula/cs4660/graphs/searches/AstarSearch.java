@@ -54,13 +54,13 @@ public class AstarSearch implements SearchStrategy {
 		allNodes.add(visitngNode);
 
 		while((visitngNode != null) && (!visitngNode.equals(dist)) && (!allNodes.isEmpty())){
-			System.out.println("visitn node    " + visitngNode.getData().getX() +" "+visitngNode.getData().getY()+" "+visitngNode.getData().getType());
+			//System.out.println("visitn node    " + visitngNode.getData().getX() +" "+visitngNode.getData().getY()+" "+visitngNode.getData().getType());
 			if(!exploredSet.contains(visitngNode)){
 				exploredSet.add(visitngNode);
 				allNodes.remove(visitngNode);
 				frontier = new HashSet<Node>(graph.neighbors(visitngNode));
 				for (Node<Tile> eachNode : frontier) {
-					System.out.println("eachNode" + eachNode.getData().getX() +" "+eachNode.getData().getY()+" "+eachNode.getData().getType());
+					//System.out.println("eachNode" + eachNode.getData().getX() +" "+eachNode.getData().getY()+" "+eachNode.getData().getType());
 					if(!eachNode.getData().getType().equalsIgnoreCase("##")){
 						//already explored//allNodes.containsKey(eachNode) will work
 						if(previousNode.containsKey(eachNode)){
@@ -112,7 +112,7 @@ public class AstarSearch implements SearchStrategy {
 //			}
 
 		}
-		System.out.println(previousNode.containsValue(dist));
+		//System.out.println(previousNode.containsValue(dist));
 		Node<Tile> parent;
 		parent =  previousNode.get(dist);
 		visitngNode = dist;

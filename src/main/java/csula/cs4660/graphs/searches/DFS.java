@@ -12,7 +12,7 @@ import java.util.*;
 public class DFS implements SearchStrategy {
     @Override
     public List<Edge> search(Graph graph, Node source, Node dist) {
-    	System.out.println("soucr" + source + " diest " + dist);
+    	//System.out.println("soucr" + source + " diest " + dist);
 
 		Stack<Node> stackOfNodes = new Stack<Node>();
 		ArrayList<Edge> resultSet = new ArrayList<>();
@@ -61,10 +61,7 @@ public class DFS implements SearchStrategy {
 			}			
 		}	
 		
-		for (Edge eachEdge : resultSet) {
-			System.out.println("print result");
-			System.out.println(eachEdge.getFrom()+ " "+ eachEdge.getTo() +"   " + eachEdge.getValue());
-		}
+		
 		Collections.reverse(resultSet);
 		return  resultSet;
     }

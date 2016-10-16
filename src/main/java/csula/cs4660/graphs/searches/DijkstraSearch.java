@@ -12,7 +12,7 @@ import java.util.*;
 public class DijkstraSearch implements SearchStrategy {
     @Override
     public List<Edge> search(Graph graph, Node source, Node dist) {
-    	System.out.println("soucr" + source + " diest " + dist);
+    	//System.out.println("soucr" + source + " diest " + dist);
 
 		ArrayList<Edge> resultSet = new ArrayList<>();
 		//unvisited node list
@@ -71,12 +71,6 @@ public class DijkstraSearch implements SearchStrategy {
 		}	
 
 		Collections.reverse(resultSet);
-
-
-		for (Edge eachEdge : resultSet) {
-			System.out.println("print result");
-			System.out.println(eachEdge.getFrom()+ " "+ eachEdge.getTo() +"   " + eachEdge.getValue());
-		}
 
 
 		return resultSet;
