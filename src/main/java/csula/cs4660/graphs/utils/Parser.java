@@ -86,7 +86,6 @@ public class Parser {
 				y = fromTile.getY()-1;
 				newCoord = new Coord(x,y);
 				newTile =(Tile) inputMap.get(newCoord);
-//				if(!newTile.getType().equals("##"))
 					graph.addEdge(new Edge(new Node<Tile>(fromTile),new Node<Tile>(newTile),1));
 			}
 			break;
@@ -97,7 +96,6 @@ public class Parser {
 				y = fromTile.getY()+1;
 				newCoord = new Coord(x,y);
 				newTile =(Tile) inputMap.get(newCoord);
-//				if(!newTile.getType().equalsIgnoreCase("##"))
 					graph.addEdge(new Edge(new Node<Tile>(fromTile),new Node<Tile>(newTile),1));
 			}
 
@@ -109,7 +107,6 @@ public class Parser {
 				y = fromTile.getY();
 				newCoord = new Coord(x,y);
 				newTile = inputMap.get(newCoord);		
-//				if(!newTile.getType().equalsIgnoreCase("##"))
 					graph.addEdge(new Edge(new Node<Tile>(fromTile),new Node<Tile>(newTile),1));
 			}
 
@@ -122,8 +119,7 @@ public class Parser {
 				y = fromTile.getY();
 				newCoord = new Coord(x,y);
 				newTile = inputMap.get(newCoord);		
-//				if(!newTile.getType().equalsIgnoreCase("##"))
-					graph.addEdge(new Edge(new Node<Tile>(fromTile),new Node<Tile>(newTile),1));
+				graph.addEdge(new Edge(new Node<Tile>(fromTile),new Node<Tile>(newTile),1));
 			}
 			break;
 		}
@@ -134,23 +130,23 @@ public class Parser {
 
 
 	public static String converEdgesToAction(Collection<Edge> edges) {
-		String actionsToTraceThePath = null;
+		StringBuilder actionsToTraceThePath = new StringBuilder();
 		Tile fromTile =null, toTile =null;
 
 		for (Edge eachEdge : edges) {
 			fromTile = (Tile) eachEdge.getFrom().getData();
 			toTile = (Tile) eachEdge.getTo().getData();
 			if (fromTile.getY() > toTile.getY())
-				actionsToTraceThePath.concat("N");
+				actionsToTraceThePath.append("N");
 			else if (fromTile.getY() < toTile.getY())
-				actionsToTraceThePath.concat("S");
+				actionsToTraceThePath.append("S");
 			else if (fromTile.getX() < toTile.getX())
-				actionsToTraceThePath.concat("E");
+				actionsToTraceThePath.append("E");
 			else if (fromTile.getX() > toTile.getX())
-				actionsToTraceThePath.concat("W");
+				actionsToTraceThePath.append("W");
 
 		}
 
-		return actionsToTraceThePath;
+		return actionsToTraceThePath.toString();
 	}
 }

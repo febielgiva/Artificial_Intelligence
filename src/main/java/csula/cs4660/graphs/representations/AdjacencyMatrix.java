@@ -87,7 +87,8 @@ public class AdjacencyMatrix implements Representation {
 	}
 
 	public AdjacencyMatrix() {
-
+		adjacencyMatrix =new int[0][0];
+		nodes = new Node[0];
 	}
 
 	@Override
