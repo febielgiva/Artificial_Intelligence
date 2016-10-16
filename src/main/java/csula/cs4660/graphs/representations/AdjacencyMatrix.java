@@ -96,10 +96,10 @@ public class AdjacencyMatrix implements Representation {
 
 	private void printAdajcent() {
 		
-		//System.out.println(adjacencyMatrix.length);
+		System.out.println(adjacencyMatrix.length);
 		for(int i =0;i<adjacencyMatrix.length;i++){
 			for(int j =0;j<adjacencyMatrix.length;j++){
-				//System.out.println("i = " + i + "    j =" + j +"     "+ adjacencyMatrix[i][j]);
+				System.out.println("i = " + i + "    j =" + j +"     "+ adjacencyMatrix[i][j]);
 			}
 		}
 
@@ -120,7 +120,7 @@ public class AdjacencyMatrix implements Representation {
 	public boolean adjacent(Node x, Node y) {
 //		printNode();
 //		printAdajcent();
-		//System.out.println("adajacent");
+		System.out.println("adajacent");
 		if(adjacencyMatrix[ArrayUtils.indexOf(nodes,x)][ArrayUtils.indexOf(nodes,y)] != 0)
 			return true;
 		else
@@ -131,7 +131,7 @@ public class AdjacencyMatrix implements Representation {
 
 	@Override
 	public List<Node> neighbors(Node x) {
-		//System.out.println("neighboors");
+		System.out.println("neighboors");
 
 		List<Node> expectedNodes= new ArrayList<Node>();
 
@@ -164,7 +164,7 @@ public class AdjacencyMatrix implements Representation {
 
 	@Override
 	public boolean addNode(Node x) {
-		//System.out.println("add node");
+		System.out.println("add node");
 		if(!ArrayUtils.contains( nodes,x)){
 			Node[] oldNodes = nodes;
 			nodes = Arrays.copyOf(oldNodes, oldNodes.length+1);
@@ -203,7 +203,7 @@ public class AdjacencyMatrix implements Representation {
 
 	@Override
 	public boolean removeNode(Node x) {
-		//System.out.println("remove node");
+		System.out.println("remove node");
 		int indexOfNode;
 		if(ArrayUtils.contains( nodes,x)){
 			indexOfNode = ArrayUtils.indexOf(nodes,x);
@@ -233,15 +233,15 @@ public class AdjacencyMatrix implements Representation {
 					adjacencyMatrix[i][j] = oldAdjacencyMatrix[i][j];
 				}
 			}
-//			System.out.println("remove node");
-//			printNode();
-//			printAdajcent();
+			System.out.println("remove node");
+			printNode();
+			printAdajcent();
 			return true;
 		}
 		else
-//			System.out.println("remove node");
-//			printNode();
-//			printAdajcent();
+			System.out.println("remove node");
+			printNode();
+			printAdajcent();
 			return false;
 	}
 
