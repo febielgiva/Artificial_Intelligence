@@ -45,7 +45,7 @@ public class AStarTest {
     }
 
     private Graph[] buildGraphs(File file) {
-        Graph[] graphs = new Graph[2];
+        Graph[] graphs = new Graph[3];
 
         graphs[0] = Parser.readRectangularGridFile(
             Representation.STRATEGY.ADJACENCY_LIST,
@@ -57,10 +57,10 @@ public class AStarTest {
             file
         );
 
-//        graphs[0] = Parser.readRectangularGridFile(
-//            Representation.STRATEGY.OBJECT_ORIENTED,
-//            file
-//        );
+        graphs[2] = Parser.readRectangularGridFile(
+            Representation.STRATEGY.OBJECT_ORIENTED,
+            file
+        );
 
         return graphs;
     }
