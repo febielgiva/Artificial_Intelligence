@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -25,6 +26,8 @@ import java.util.Optional;
 public class ObjectOriented implements Representation {
 	private Collection<Node> nodes;
 	private Collection<Edge> edges;
+	private Map<Node, Collection<Edge>> hashMap = new HashMap<Node,Collection<Edge>>();
+
 
 	public ObjectOriented(File file) {
 		nodes = new HashSet<Node>();
@@ -34,10 +37,12 @@ public class ObjectOriented implements Representation {
 		Node fromNode;
 		Node toNode;
 		int value = 0;
+
 		try {
 			buffer = new BufferedReader(new FileReader(file));
 			int noOfVertices =Integer.parseInt(buffer.readLine().trim());
 			String line;
+			Collection<Edge> collectionOfEdge = new ArrayList<Edge>();
 			while ((line = buffer.readLine()) != null) {
 				String[] vals = line.trim().split("\\:");
 				fromNode = new Node<Integer>(Integer.parseInt(vals[0]));
@@ -46,6 +51,22 @@ public class ObjectOriented implements Representation {
 				nodes.add(fromNode);
 				nodes.add(toNode);
 				if(!edges.contains(new Edge(fromNode,toNode,value))){
+
+					collectionOfEdge = new ArrayList<Edge>();
+					if(hashMap == null){
+						collectionOfEdge.add(new Edge(fromNode,toNode,value));
+						hashMap.put(fromNode, collectionOfEdge);
+					}
+					else if(hashMap.containsKey(fromNode)){
+						collectionOfEdge = hashMap.get(fromNode);
+						collectionOfEdge.add(new Edge(fromNode,toNode,value));
+						hashMap.put(fromNode, collectionOfEdge);
+					}
+					else{
+						collectionOfEdge.add(new Edge(fromNode,toNode,value));
+						hashMap.put(fromNode, collectionOfEdge);
+					}
+
 					edges.add(new Edge(fromNode,toNode,value));
 				}
 			}
@@ -59,7 +80,8 @@ public class ObjectOriented implements Representation {
 	}
 
 	public ObjectOriented() {
-
+		nodes = new HashSet<Node>();
+		edges = new ArrayList<Edge>();
 	}
 
 	@Override
@@ -76,11 +98,10 @@ public class ObjectOriented implements Representation {
 	@Override
 	public List<Node> neighbors(Node x) {	
 		List<Node> expectedNodes= new ArrayList<Node>();
-		if(nodes.contains(x)){
-			for (Iterator iterator = edges.iterator(); iterator.hasNext();) {
-				Edge edge = (Edge) iterator.next();
-				if(edge.getFrom().equals(x)){		
-					expectedNodes.add(edge.getTo());
+		if(hashMap != null){
+			if(hashMap.containsKey(x)){
+				for(Edge eachEdge : hashMap.get(x)){
+					expectedNodes.add(eachEdge.getTo());
 				}
 			}
 		}
@@ -102,6 +123,20 @@ public class ObjectOriented implements Representation {
 	public boolean removeNode(Node x) {
 		if(nodes.contains(x)){
 			nodes.remove(x);
+			if(hashMap.containsKey(x)){
+				hashMap.remove(x);
+				for (Map.Entry<Node, Collection<Edge>> entry : hashMap.entrySet()) {
+					Node key = entry.getKey();
+					Collection<Edge> value = entry.getValue();
+					for (Iterator iterator = value.iterator(); iterator.hasNext();) {
+						Edge edge = (Edge) iterator.next();
+						if(edge.getTo().equals(x)){
+							iterator.remove();
+
+						}
+					}
+				}
+			}
 			for (Iterator iterator = edges.iterator(); iterator.hasNext();) {
 				Edge edge = (Edge) iterator.next();
 				if(edge.getFrom().equals(x) || edge.getTo().equals(x)){		
@@ -117,22 +152,32 @@ public class ObjectOriented implements Representation {
 
 	@Override
 	public boolean addEdge(Edge x) {
-
+		Collection<Edge> collectionOfEdge = new ArrayList<Edge>();
 		if(nodes.contains(x.getFrom())){
 			//already exsit
 			if(edges.contains(x)){
 				return false;
 			}
 			else{
+				if(hashMap == null){
+					collectionOfEdge.add(x);
+					hashMap.put(x.getFrom(), collectionOfEdge);
+				}
+				else if(hashMap.containsKey(x.getFrom())){
+					collectionOfEdge = hashMap.get(x.getFrom());
+					collectionOfEdge.add(x);
+					hashMap.put(x.getFrom(), collectionOfEdge);
+				}
+				else{
+					collectionOfEdge.add(x);
+					hashMap.put(x.getFrom(), collectionOfEdge);
+				}
 				edges.add(x);
 				return true;
 			}
 		}
-		else{
-			nodes.add(x.getFrom());
-			edges.add(x);
-			return true;
-		}
+		return false;
+
 
 	}
 
@@ -140,6 +185,15 @@ public class ObjectOriented implements Representation {
 	public boolean removeEdge(Edge x) {
 		if(edges.contains(x)){
 			edges.remove(x);
+			if(hashMap != null){
+				if(hashMap.containsKey(x.getFrom())){
+					Collection<Edge> collectionOfEdge = hashMap.get(x.getFrom());
+					if(collectionOfEdge.contains(x)){
+						collectionOfEdge.remove(x);
+						hashMap.put(x.getFrom(),collectionOfEdge);
+					}
+				}
+			}
 			return true;
 		}
 		else
@@ -148,6 +202,11 @@ public class ObjectOriented implements Representation {
 
 	@Override
 	public int distance(Node from, Node to) {
+		for (Edge edge : edges) {
+			if((edge.getFrom().equals(from)) &&(edge.getTo().equals(to))){
+				return edge.getValue();
+			}
+		}
 		return 0;
 	}
 
