@@ -59,7 +59,8 @@ public class ObjectOriented implements Representation {
 	}
 
 	public ObjectOriented() {
-
+		nodes = new HashSet<Node>();
+		edges = new ArrayList<Edge>();
 	}
 
 	@Override
@@ -77,10 +78,9 @@ public class ObjectOriented implements Representation {
 	public List<Node> neighbors(Node x) {	
 		List<Node> expectedNodes= new ArrayList<Node>();
 		if(nodes.contains(x)){
-			for (Iterator iterator = edges.iterator(); iterator.hasNext();) {
-				Edge edge = (Edge) iterator.next();
-				if(edge.getFrom().equals(x)){		
-					expectedNodes.add(edge.getTo());
+			for (Edge eachEdge : edges) {
+				if(eachEdge.getFrom().equals(x)){		
+					expectedNodes.add(eachEdge.getTo());
 				}
 			}
 		}
