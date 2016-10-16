@@ -77,10 +77,12 @@ public class ObjectOriented implements Representation {
 	@Override
 	public List<Node> neighbors(Node x) {	
 		List<Node> expectedNodes= new ArrayList<Node>();
-		if(nodes.contains(x)){
-			for (Edge eachEdge : edges) {
-				if(eachEdge.getFrom().equals(x)){		
-					expectedNodes.add(eachEdge.getTo());
+		if(nodes != null){
+			if(nodes.contains(x)){
+				for (Edge eachEdge : edges) {
+					if(eachEdge.getFrom().equals(x)){		
+						expectedNodes.add(eachEdge.getTo());
+					}
 				}
 			}
 		}
@@ -89,13 +91,20 @@ public class ObjectOriented implements Representation {
 
 	@Override
 	public boolean addNode(Node x) {
-		if(nodes.contains(x)){
-			return false;
+		if(nodes != null){
+			if(nodes.contains(x)){
+				return false;
+			}
+			else{
+				nodes.add(x);
+				return true;
+			}
 		}
 		else{
 			nodes.add(x);
 			return true;
 		}
+
 	}
 
 	@Override
@@ -118,20 +127,26 @@ public class ObjectOriented implements Representation {
 	@Override
 	public boolean addEdge(Edge x) {
 
-		if(nodes.contains(x.getFrom())){
-			//already exsit
-			if(edges.contains(x)){
-				return false;
+		if(nodes != null){
+
+			if(nodes.contains(x.getFrom())){
+				//already exsit
+				if(edges.contains(x)){
+					return false;
+				}
+				else{
+					edges.add(x);
+					return true;
+				}
 			}
 			else{
+				nodes.add(x.getFrom());
 				edges.add(x);
 				return true;
 			}
 		}
 		else{
-			nodes.add(x.getFrom());
-			edges.add(x);
-			return true;
+			return false;
 		}
 
 	}

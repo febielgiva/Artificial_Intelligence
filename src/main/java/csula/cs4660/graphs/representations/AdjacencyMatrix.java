@@ -1,13 +1,16 @@
+
+
+
+
+
 package csula.cs4660.graphs.representations;
 
 import csula.cs4660.graphs.Edge;
 import csula.cs4660.graphs.Node;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,9 +18,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import org.apache.commons.lang3.ArrayUtils;
-
 import com.google.common.primitives.Ints;
 
 /**
@@ -30,42 +33,64 @@ public class AdjacencyMatrix implements Representation {
 	private int[][] adjacencyMatrix;
 
 	public AdjacencyMatrix(File file) {
-		int i = 0;
-		BufferedReader br = null;
-		BufferedReader buffer;
-		Node fromNode;
-		Node toNode;
-
-		int value = 0;
-		try {
-			buffer = new BufferedReader(new FileReader(file));
-			int noOfVertices =Integer.parseInt(buffer.readLine().trim());
-			String line;
-			nodes =  new Node[noOfVertices];
-			adjacencyMatrix = new int[noOfVertices][noOfVertices];
-			while ((line = buffer.readLine()) != null) {
-				String[] vals = line.trim().split("\\:");
-				fromNode = new Node<Integer>(Integer.parseInt(vals[0]));
-				if(!ArrayUtils.contains( nodes,fromNode))
-					nodes[i++] = fromNode;
-
-				toNode   = new Node<Integer>(Integer.parseInt(vals[1]));
-				if(!ArrayUtils.contains( nodes,toNode))
-					nodes[i++] = toNode;
-				
-				value    = Integer.parseInt(vals[2]);
-				adjacencyMatrix[ArrayUtils.indexOf(nodes,fromNode)][ArrayUtils.indexOf(nodes,toNode)] = value;
-
-				
-			}
-
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		int i = 0;
+//		BufferedReader br = null;
+//		BufferedReader buffer;
+//		Node fromNode;
+//		Node toNode;
+//
+//		int value = 0;
+//		try {
+//			buffer = new BufferedReader(new FileReader(file));
+//			int noOfVertices =Integer.parseInt(buffer.readLine().trim());
+//			String line;
+//			nodes =  new Node[noOfVertices];
+//			adjacencyMatrix = new int[noOfVertices][noOfVertices];
+//			while ((line = buffer.readLine()) != null) {
+//				String[] vals = line.trim().split("\\:");
+//				fromNode = new Node<Integer>(Integer.parseInt(vals[0]));
+//				if(!ArrayUtils.contains( nodes,fromNode))
+//					nodes[i++] = fromNode;
+//
+//				toNode   = new Node<Integer>(Integer.parseInt(vals[1]));
+//				if(!ArrayUtils.contains( nodes,toNode))
+//					nodes[i++] = toNode;
+//				
+//				value    = Integer.parseInt(vals[2]);
+//				adjacencyMatrix[ArrayUtils.indexOf(nodes,fromNode)][ArrayUtils.indexOf(nodes,toNode)] = value;
+//
+//				
+//			}
+//
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		
+		
+		try (Stream<String> stream = Files.lines(file.toPath())) {
+            stream.forEach(line -> {
+               if(line.split(":").length == 1){
+            	   int totalNoOfNodes = Integer.parseInt(line);
+            	   adjacencyMatrix = new int[totalNoOfNodes][totalNoOfNodes];
+            	   nodes = new Node[totalNoOfNodes];
+            	   for(int i =0; i< totalNoOfNodes; i++){
+            		  nodes[i] = new Node(i);
+            	   }
+               }
+               else{
+            	   String[] fromToValue = line.split(":");
+            	   adjacencyMatrix[Integer.parseInt(fromToValue[0])][Integer.parseInt(fromToValue[1])] = Integer.parseInt(fromToValue[2]);
+            	   
+               }
+           });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 	}
 
@@ -86,10 +111,10 @@ public class AdjacencyMatrix implements Representation {
 
 	}
 
-	public AdjacencyMatrix() {
-		adjacencyMatrix =new int[0][0];
-		nodes = new Node[0];
-	}
+ public AdjacencyMatrix() {
+	 adjacencyMatrix = new int[0][0];
+	 nodes = new Node[0];
+}
 
 	@Override
 	public boolean adjacent(Node x, Node y) {
@@ -107,24 +132,33 @@ public class AdjacencyMatrix implements Representation {
 	@Override
 	public List<Node> neighbors(Node x) {
 		System.out.println("neighboors");
-		int count=0;
-		int expectedNodeData[] = new int[nodes.length] ;
-		int indexOfMainNode = ArrayUtils.indexOf(nodes,x);
-//		System.out.println("index of node = "+ x +"index"+indexOfMainNode);
+
 		List<Node> expectedNodes= new ArrayList<Node>();
-		for(int i = 0;i<adjacencyMatrix.length;i++){
-//			System.out.println(adjacencyMatrix[indexOfMainNode][i] + "     ");
-			if(adjacencyMatrix[indexOfMainNode][i] != 0){
-//				System.out.println(i+"   "+adjacencyMatrix[indexOfMainNode][i]+"    "+nodes[i].getData());
-				expectedNodeData[count++]=(int) nodes[i].getData();
-				//expectedNodes.add(new Node(nodes[i].getData()));
+
+//		if(x.getData().getClass().isPrimitive()){
+//			int count=0;
+//			int expectedNodeData[] = new int[nodes.length] ;
+//			int indexOfMainNode = ArrayUtils.indexOf(nodes,x);
+//			for(int i = 0;i<adjacencyMatrix.length;i++){
+//				if(adjacencyMatrix[indexOfMainNode][i] != 0){
+//					expectedNodeData[count++]=(int) nodes[i].getData();
+//				}
+//			}
+//			int[] nodes = Arrays.copyOf(expectedNodeData, count);
+//			Arrays.sort(nodes);
+//			for (int i = 0; i < count; i++) {
+//				expectedNodes.add(new Node(nodes[i]));
+//			}
+//		}
+//		else{
+		int i =0;
+		for(int eachValue : adjacencyMatrix[ArrayUtils.indexOf(nodes,x)]){
+			if(eachValue != 0){
+				expectedNodes.add(nodes[i]);
 			}
+			i++;
 		}
-		int[] nodes = Arrays.copyOf(expectedNodeData, count);
-		Arrays.sort(nodes);
-		for (int i = 0; i < count; i++) {
-			expectedNodes.add(new Node(nodes[i]));
-		}
+		
 		return expectedNodes;
 	}
 
@@ -159,8 +193,8 @@ public class AdjacencyMatrix implements Representation {
 //					adjacencyMatrix[i][j] = oldAdjacencyMatrix[i][j];
 //				}
 //			}
-			printNode();
-			printAdajcent();
+//			printNode();
+//			printAdajcent();
 			return true;
 		}
 		else
@@ -224,18 +258,8 @@ public class AdjacencyMatrix implements Representation {
 					return true;
 				}
 			}
-			else{
-				nodes[nodes.length] = x.getTo();
-				adjacencyMatrix[ArrayUtils.indexOf(nodes,x.getFrom())][ArrayUtils.indexOf(nodes,x.getTo())] = x.getValue();
-				return true;
-
-			}
 		}
-		else{
-			nodes[nodes.length] = x.getTo();
-			adjacencyMatrix[ArrayUtils.indexOf(nodes,x.getFrom())][ArrayUtils.indexOf(nodes,x.getTo())] = x.getValue();
-			return true;
-		}
+		return false;
 	}
 
 	@Override

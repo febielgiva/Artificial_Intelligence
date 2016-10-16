@@ -45,22 +45,22 @@ public class AStarTest {
     }
 
     private Graph[] buildGraphs(File file) {
-        Graph[] graphs = new Graph[1];
-
-//        graphs[0] = Parser.readRectangularGridFile(
-//            Representation.STRATEGY.ADJACENCY_LIST,
-//            file
-//        );
-
-//        graphs[0] = Parser.readRectangularGridFile(
-//            Representation.STRATEGY.ADJACENCY_MATRIX,
-//            file
-//        );
+        Graph[] graphs = new Graph[2];
 
         graphs[0] = Parser.readRectangularGridFile(
-            Representation.STRATEGY.OBJECT_ORIENTED,
+            Representation.STRATEGY.ADJACENCY_LIST,
             file
         );
+
+        graphs[1] = Parser.readRectangularGridFile(
+            Representation.STRATEGY.ADJACENCY_MATRIX,
+            file
+        );
+
+//        graphs[0] = Parser.readRectangularGridFile(
+//            Representation.STRATEGY.OBJECT_ORIENTED,
+//            file
+//        );
 
         return graphs;
     }
