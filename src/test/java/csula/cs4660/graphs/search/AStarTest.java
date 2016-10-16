@@ -122,24 +122,24 @@ public class AStarTest {
         timer = Stopwatch.createStarted();
     }
 
-//    @Test(timeout=15)
-//    public void testAStar1() {
-//        Arrays.stream(graph1s)
-//            .forEach(graph -> {
-//                assertEquals(
-//                    "Test A* on graph 1",
-//                    "SSSSE",
-//                    Parser.converEdgesToAction(
-//                        graph.search(
-//                            new AstarSearch(),
-//                            new Node<>(new Tile(3, 0, "@1")),
-//                            new Node<>(new Tile(4, 4, "@6")))
-//                    )
-//                );
-//            });
-//
-//        System.out.println("A star 1 spends " + timer.stop());
-//    }
+    @Test(timeout=15)
+    public void testAStar1() {
+        Arrays.stream(graph1s)
+            .forEach(graph -> {
+                assertEquals(
+                    "Test A* on graph 1",
+                    "SSSSE",
+                    Parser.converEdgesToAction(
+                        graph.search(
+                            new AstarSearch(),
+                            new Node<>(new Tile(3, 0, "@1")),
+                            new Node<>(new Tile(4, 4, "@6")))
+                    )
+                );
+            });
+
+        System.out.println("A star 1 spends " + timer.stop());
+    }
 
     @Test(timeout=500)
     public void testAStar2() {
