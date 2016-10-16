@@ -81,7 +81,7 @@ public class Parser {
 		Tile newTile;
 		switch(direction){
 		case "N" : {
-			if(fromTile.getY() -1 >= 0 ){
+			if(fromTile.getY() -1 > 0 ){
 				x = fromTile.getX();
 				y = fromTile.getY()-1;
 				newCoord = new Coord(x,y);
@@ -91,7 +91,7 @@ public class Parser {
 			break;
 		}
 		case "S" : {
-			if(fromTile.getY() + 1 < row ){
+			if((fromTile.getY() + 1) < row ){
 				x = fromTile.getX();
 				y = fromTile.getY()+1;
 				newCoord = new Coord(x,y);
@@ -102,7 +102,7 @@ public class Parser {
 			break;
 		}
 		case "E" : {
-			if(fromTile.getX() + 1 < column ){
+			if((fromTile.getX() + 1) < column ){
 				x = fromTile.getX()+1;
 				y = fromTile.getY();
 				newCoord = new Coord(x,y);
@@ -114,7 +114,7 @@ public class Parser {
 		}
 		case "W" : {
 
-			if(fromTile.getX() - 1 <= 0 ){
+			if((fromTile.getX() - 1) > 0 ){
 				x = fromTile.getX()-1;
 				y = fromTile.getY();
 				newCoord = new Coord(x,y);

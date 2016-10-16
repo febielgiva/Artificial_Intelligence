@@ -21,7 +21,7 @@ import java.util.Set;
 public class AstarSearch implements SearchStrategy {
 
 	public AstarSearch(){
-		
+
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class AstarSearch implements SearchStrategy {
 		//distance to the target
 		Map<Node<Tile>,Integer> hScore = new HashMap<Node<Tile>,Integer>();
 		//distance to the next node
-		
+
 		List<Node<Tile>> nextLevelCheckNode;
 		int movementCost = 1;
 
@@ -54,51 +54,66 @@ public class AstarSearch implements SearchStrategy {
 		allNodes.add(visitngNode);
 
 		while((visitngNode != null) && (!visitngNode.equals(dist)) && (!allNodes.isEmpty())){
+			System.out.println("visitn node    " + visitngNode.getData().getX() +" "+visitngNode.getData().getY()+" "+visitngNode.getData().getType());
 			if(!exploredSet.contains(visitngNode)){
 				exploredSet.add(visitngNode);
 				allNodes.remove(visitngNode);
 				frontier = new HashSet<Node>(graph.neighbors(visitngNode));
 				for (Node<Tile> eachNode : frontier) {
+					System.out.println("eachNode" + eachNode.getData().getX() +" "+eachNode.getData().getY()+" "+eachNode.getData().getType());
 					if(!eachNode.getData().getType().equalsIgnoreCase("##")){
-					//already explored//allNodes.containsKey(eachNode) will work
-					if(previousNode.containsKey(eachNode)){
-						//its not in closed list also
-						if(!exploredSet.contains(eachNode)){
-							newGscore = gScore.get(visitngNode) + movementCost;
-							oldGscore = gScore.get(eachNode);
-							if(newGscore < oldGscore){
-								previousNode.put(eachNode,visitngNode);
-								gScore.put(eachNode,newGscore);
-								totalCost.put(eachNode,newGscore+hScore.get(eachNode));
+						//already explored//allNodes.containsKey(eachNode) will work
+						if(previousNode.containsKey(eachNode)){
+							//its not in closed list also
+							if(!exploredSet.contains(eachNode)){
+								newGscore = gScore.get(visitngNode) + movementCost;
+								oldGscore = gScore.get(eachNode);
+								if(newGscore < oldGscore){
+									previousNode.put(eachNode,visitngNode);
+									gScore.put(eachNode,newGscore);
+									totalCost.put(eachNode,newGscore+hScore.get(eachNode));
+								}
 							}
 						}
-					}
-					//first time we are exploring it
-					else{
-						previousNode.put(eachNode,visitngNode);
-						hScore.put(eachNode,calculateHeuristic(eachNode,dist));
-						gScore.put(eachNode,gScore.get(visitngNode) + movementCost);
-						newTotalCost = hScore.get(eachNode) + gScore.get(eachNode);
-						totalCost.put(eachNode,newTotalCost);
-						allNodes.add(eachNode);
+						//first time we are exploring it
+						else{
+							previousNode.put(eachNode,visitngNode);
+							hScore.put(eachNode,calculateHeuristic(eachNode,dist));
+							gScore.put(eachNode,gScore.get(visitngNode) + movementCost);
+							newTotalCost = hScore.get(eachNode) + gScore.get(eachNode);
+							totalCost.put(eachNode,newTotalCost);
+							allNodes.add(eachNode);
 
-					}
+						}
 					}
 				}		
 			}
-	
+
 			//calculating next effective toatal cost
 			comparingCost = 0;
 			comparingCost = computeComparingCost(totalCost,exploredSet);
-			
+
 			nextLevelCheckNode = new ArrayList<Node<Tile>>();
 			nextLevelCheckNode = getListOfNextPossibleNodes(comparingCost,totalCost,exploredSet);
-			System.out.println("visitn node" + visitngNode.getData().getX() +" "+visitngNode.getData().getY()+" "+visitngNode.getData().getType());
 			visitngNode = selectBestNextNode(nextLevelCheckNode,hScore);
+
+//			if(visitngNode == null){
+//				System.out.println("visitng node is null");
+//				if(!allNodes.isEmpty()){
+//					for (Node<Tile> eachAllNode : allNodes) {
+//						comparingCost = 0;
+//						comparingCost = computeComparingCost(totalCost,exploredSet);	
+//						nextLevelCheckNode = new ArrayList<Node<Tile>>();
+//						nextLevelCheckNode = getListOfNextPossibleNodes(comparingCost,totalCost,exploredSet);
+//						System.out.println("visitn node" + visitngNode.getData().getX() +" "+visitngNode.getData().getY()+" "+visitngNode.getData().getType());
+//						visitngNode = selectBestNextNode(nextLevelCheckNode,hScore);
+//					}
+//				}
+//			}
 
 		}
 		System.out.println(previousNode.containsValue(dist));
-		Node parent;
+		Node<Tile> parent;
 		parent =  previousNode.get(dist);
 		visitngNode = dist;
 		while(parent != null){			
@@ -106,25 +121,25 @@ public class AstarSearch implements SearchStrategy {
 			visitngNode = parent;
 			parent = previousNode.get(visitngNode);			
 		}	
-		
+
 		Collections.reverse(resultSet);
 
 		return resultSet;
 	}
 
-	
+
 	private List<Node<Tile>> getListOfNextPossibleNodes(int comparingCost, Map<Node<Tile>, Integer> totalCost,
 			Set<Node<Tile>> exploredSet) {
 		List <Node<Tile>>list = new ArrayList<Node<Tile>>();
-	    for(Node<Tile> eachNode:totalCost.keySet()){
-	        if((totalCost.get(eachNode) == comparingCost) && (!exploredSet.contains(eachNode))) {
-	            list.add(eachNode);
-	        }
-	    }
-	    return list;
+		for(Node<Tile> eachNode:totalCost.keySet()){
+			if((totalCost.get(eachNode) == comparingCost) && (!exploredSet.contains(eachNode))) {
+				list.add(eachNode);
+			}
+		}
+		return list;
 	}
 
-	private Node selectBestNextNode(List<Node<Tile>> nextLevelCheckNode, Map<Node<Tile>, Integer> hScore) {
+	private Node<Tile> selectBestNextNode(List<Node<Tile>> nextLevelCheckNode, Map<Node<Tile>, Integer> hScore) {
 		int comparingCost = Integer.MAX_VALUE;
 		Node<Tile> vistingNode = null;
 		for (Node<Tile> eachNode : nextLevelCheckNode) {

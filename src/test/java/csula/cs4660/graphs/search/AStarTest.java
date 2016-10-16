@@ -141,41 +141,41 @@ public class AStarTest {
 //        System.out.println("A star 1 spends " + timer.stop());
 //    }
 
-//    @Test(timeout=15)
-//    public void testAStar2() {
-//        Arrays.stream(graph2s)
-//            .forEach(graph -> {
-//                String result = Parser.converEdgesToAction(
-//                    graph.search(
-//                        new AstarSearch(),
-//                        new Node<>(new Tile(3, 0, "@1")),
-//                        new Node<>(new Tile(13, 0, "@8")))
-//                );
-//                String expectedOutput = "SSSSEEEEEEEEEEEEENNWNWNW";
-//                assertEquals(
-//                    "Test grid 2 number of S",
-//                    findNumberOfCharacter(expectedOutput, "([N])"),
-//                    findNumberOfCharacter(result, "([N])")
-//                );
-//                assertEquals(
-//                    "Test grid 2 number of S",
-//                    findNumberOfCharacter(expectedOutput, "([E])"),
-//                    findNumberOfCharacter(result, "([E])")
-//                );
-//                assertEquals(
-//                    "Test grid 2 number of S",
-//                    findNumberOfCharacter(expectedOutput, "([W])"),
-//                    findNumberOfCharacter(result, "([W])")
-//                );
-//                assertEquals(
-//                    "Test grid 2 number of E",
-//                    findNumberOfCharacter(expectedOutput, "([S])"),
-//                    findNumberOfCharacter(result, "([S])")
-//                );
-//            });
-//
-//        System.out.println("A star 2 spends " + timer.stop());
-//    }
+    @Test(timeout=500)
+    public void testAStar2() {
+        Arrays.stream(graph2s)
+            .forEach(graph -> {
+                String result = Parser.converEdgesToAction(
+                    graph.search(
+                        new AstarSearch(),
+                        new Node<>(new Tile(3, 0, "@1")),
+                        new Node<>(new Tile(13, 0, "@8")))
+                );
+                String expectedOutput = "SSSSEEEEEEEEEEEEENNWNWNW";
+                assertEquals(
+                    "Test grid 2 number of S",
+                    findNumberOfCharacter(expectedOutput, "([N])"),
+                    findNumberOfCharacter(result, "([N])")
+                );
+                assertEquals(
+                    "Test grid 2 number of S",
+                    findNumberOfCharacter(expectedOutput, "([E])"),
+                    findNumberOfCharacter(result, "([E])")
+                );
+                assertEquals(
+                    "Test grid 2 number of S",
+                    findNumberOfCharacter(expectedOutput, "([W])"),
+                    findNumberOfCharacter(result, "([W])")
+                );
+                assertEquals(
+                    "Test grid 2 number of E",
+                    findNumberOfCharacter(expectedOutput, "([S])"),
+                    findNumberOfCharacter(result, "([S])")
+                );
+            });
+
+        System.out.println("A star 2 spends " + timer.stop());
+    }
 
     @Test(timeout=15)
     public void testAStar3() {
