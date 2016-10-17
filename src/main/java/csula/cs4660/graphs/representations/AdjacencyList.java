@@ -121,8 +121,8 @@ public class AdjacencyList implements Representation {
 
 	@Override
 	public boolean addNode(Node x) {
-
-		if((!adjacencyList.containsKey(x)) || (adjacencyList.equals(null))){
+		if(!adjacencyList.equals(null)){
+		if((!adjacencyList.containsKey(x))){
 			adjacencyList.put(x, null);
 			return true;
 		}
@@ -130,6 +130,8 @@ public class AdjacencyList implements Representation {
 
 			return false;
 		}
+		}
+		return false;
 	}
 
 	@Override
