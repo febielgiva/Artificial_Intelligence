@@ -6,16 +6,13 @@ import csula.cs4660.graphs.Node;
 
 import java.io.BufferedReader;
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+
+import java.util.*;
+
 
 /**
  * Adjacency list is probably the most common implementation to store the unknown
@@ -24,6 +21,7 @@ import java.util.Optional;
  * TODO: please implement the method body
  */
 public class AdjacencyList implements Representation {
+
 
 	private Map<Node, Collection<Edge>> adjacencyList;
 
@@ -295,4 +293,9 @@ public class AdjacencyList implements Representation {
 	    return Optional.of(node);
 	}
 
+	@Override
+	public Optional<Node> getNode(Node node) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

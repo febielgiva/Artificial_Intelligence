@@ -9,6 +9,7 @@ import csula.cs4660.graphs.Edge;
 import csula.cs4660.graphs.Node;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.lang.reflect.Array;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -25,10 +27,9 @@ import com.google.common.primitives.Ints;
 
 /**
  * Adjacency matrix in a sense store the nodes in two dimensional array
- *
- * TODO: please fill the method body of this class
  */
 public class AdjacencyMatrix implements Representation {
+
 	private Node[] nodes;
 	private int[][] adjacencyMatrix;
 
@@ -283,4 +284,12 @@ public class AdjacencyMatrix implements Representation {
 	public Optional<Node> getNode(int index) {
 		return null;
 	}
+
+	@Override
+	public Optional<Node> getNode(Node node) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+   
 }
