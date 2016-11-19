@@ -141,7 +141,7 @@ public class AStarTest {
         System.out.println("A star 1 spends " + timer.stop());
     }
 
-    @Test(timeout=15)
+    @Test(timeout=500)
     public void testAStar2() {
         Arrays.stream(graph2s)
             .forEach(graph -> {

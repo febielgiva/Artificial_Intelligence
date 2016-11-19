@@ -18,11 +18,11 @@ dependencies {
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.3'
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.3'
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
 
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
-// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
-compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
 }
 
 test {
@@ -35,11 +35,3 @@ task wgcfGame(type: JavaExec) {
 
     main = 'csula.cs4660.games.WGCFGame'
 }
-
-
-task quiz(type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-
-    main = 'csula.cs4660.quizes.App'
-}
-
