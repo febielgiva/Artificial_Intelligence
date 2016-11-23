@@ -10,7 +10,7 @@
 			<attribute name="FROM_GRADLE_MODEL" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src/test/java">
+	<classpathentry excluding="csula/cs4660/games/AlphaBetaTest.java|csula/cs4660/games/MiniMaxTest.java|csula/cs4660/graphs/AdjacencyListTest.java|csula/cs4660/graphs/AdjacencyMatrixTest.java|csula/cs4660/graphs/ObjectOrientedTest.java|csula/cs4660/graphs/search/AStarTest.java|csula/cs4660/graphs/search/BFSTest.java|csula/cs4660/graphs/search/DFSTest.java|csula/cs4660/graphs/search/DijkstraTest.java" kind="src" path="src/test/java">
 		<attributes>
 			<attribute name="FROM_GRADLE_MODEL" value="true"/>
 		</attributes>
