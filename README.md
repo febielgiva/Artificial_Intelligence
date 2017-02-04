@@ -29,6 +29,9 @@ Link - https://github.com/febielgiva/Artificial_Intelligence/blob/master/notes/q
 Link to the code : https://github.com/febielgiva/Artificial_Intelligence/tree/master/src/main/java/csula/cs4660/quizes
 
 #Home Work4 and Project
+Project is work on a Tron Battle where the first challenge is to survive in the game forlongest duration and then kill the enemeies who might make the player die. 
+More about project https://www.codingame.com/multiplayer/bot-programming/tron-battle
+
 Link -https://github.com/febielgiva/Artificial_Intelligence/blob/master/notes/homeworks/homework4.md and  https://github.com/febielgiva/Artificial_Intelligence/blob/master/notes/project.md
 Link to the code : https://github.com/febielgiva/Artificial_Intelligence/tree/master/src/main/java/csula/cs4660/quizes
                                     
