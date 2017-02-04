@@ -10,8 +10,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+
 import java.util.HashMap;
 import java.util.HashSet;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -20,10 +22,9 @@ import java.util.Optional;
 /**
  * Object oriented representation of graph is using OOP approach to store nodes
  * and edges
- *
- * TODO: Please fill the body of methods in this class
  */
 public class ObjectOriented implements Representation {
+
 	private Collection<Node> nodes;
 	private Collection<Edge> edges;
 	private Map<Node, Collection<Edge>> hashMap = new HashMap<Node,Collection<Edge>>();
@@ -212,6 +213,29 @@ public class ObjectOriented implements Representation {
 
 	@Override
 	public Optional<Node> getNode(int index) {
+		
 		return null;
 	}
+
+	@Override
+	public Optional<Node> getNode(Node node) {
+		Iterator<Node> iterator = nodes.iterator();
+        Optional<Node> result = Optional.empty();
+        while (iterator.hasNext()) {
+            Node next = iterator.next();
+            if (next.equals(node)) {
+                result = Optional.of(next);
+            }
+        }
+        return result;
+	
+//		if(node == null){
+//			return Optional.empty() ;
+//		}
+//		else{
+//			return Optional.of(node);
+//		}
+		
+	}
 }
+
