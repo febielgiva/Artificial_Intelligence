@@ -24,8 +24,6 @@ Questions may include but not limited to:
 * What method takes longest?
 * What are possible improvements to your code?
 
-For the presentation template, you may follow this:
-https://docs.google.com/presentation/d/1bUyRiWzutdMzgy4Df-DqfGmaachNMx4wWQ8-IScFcUg/edit?usp=sharing
 
 And after the QA is done, please submit your Pull request as usual to homework 4
 section on CSNS.
@@ -43,4 +41,6 @@ section on CSNS.
 
 * Pass basic programming requirement (see above deliverable) [7 pts]
 * Ability to explain clearly of your changes [3 pts]
+
 * Extra Credit: implement Monte Carlo Tree Search algorithm [2 pts]
+

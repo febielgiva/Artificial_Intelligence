@@ -20,7 +20,9 @@ algorithm.
 
 ## Get started
 
-1. Sign up an account at CodinGame.
+
+1. Sign up an account at codingame.
+
 2. Choose your programming language and start hacking!
 
 ## Instructions
@@ -91,4 +93,5 @@ your code by optimizing runtime performance (so you can process more moves).
 [1]: https://en.wikipedia.org/wiki/Flood_fill
 [2]: https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
 [3]: https://en.wikipedia.org/wiki/Biconnected_component
+
 
