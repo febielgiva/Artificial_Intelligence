@@ -23,16 +23,17 @@ public class App {
 
 	static Graph graph;
 	public static void main(String[] args) {
-		//BFSMyImplementation();
+		BFSMyImplementation();
 		
 		//		graph = buildGraphs();
 		//		parserData();
-		//DijkstraMyImplementation();
+		DijkstraMyImplementation();
 		ASearchImplementation();
 
 	}
 
 	private static void DijkstraMyImplementation() {
+		int count = 0;
 		//ArrayList<> resultSet = new ArrayList<>();
 		//unvisited node list
 		Set<State> exploredSet = new HashSet<State>();
@@ -43,7 +44,7 @@ public class App {
 		
 		State initialState = Client.getState("10a5461773e8fd60940a56d2e9ef7bf4").get();
 		State destinationState = Client.getState("e577aa79473673f6158cc73e0e5dc122").get();
-
+		count++;count++;
 		previousNode.put(initialState,null);
 		queue.enqueue(initialState, 0);
 		State visitngNode;
@@ -54,7 +55,8 @@ public class App {
 			visitngNode = queue.dequeue();
 			exploredSet.add(visitngNode);
 			frontier = Client.getState(visitngNode.getId()).get().getNeighbors();
-			for (State eachNode : frontier) { 				
+			count++;
+			for (State eachNode : frontier) {		
 				if(previousNode.containsKey(eachNode)){
 						distance = queue.getValue(eachNode);	
 						Optional<DTO> opt = Client.stateTransition(visitngNode.getId(), eachNode.getId());
@@ -95,7 +97,7 @@ public class App {
 			parent = previousNode.get(visitngNode);		
 			depth++;
 		}	
-		
+		System.out.println("Total request"+count);
 		System.out.println(depth);
 		System.out.println(effect);
 		Collections.reverse(resultSet);
@@ -214,9 +216,10 @@ public class App {
 	
 	public static void  ASearchImplementation() {   
 		
+		
 		State initialState = Client.getState("10a5461773e8fd60940a56d2e9ef7bf4").get();
 		State destinationState = Client.getState("e577aa79473673f6158cc73e0e5dc122").get();
-
+		int count = 2;
 		ArrayList<Optional<DTO>> resultSet = new ArrayList<Optional<DTO>>();
 		Set<State> exploredSet = new HashSet<State>();
 		Set<State> allNodes = new HashSet<State>();
@@ -249,6 +252,7 @@ public class App {
 				exploredSet.add(visitngNode);
 				allNodes.remove(visitngNode);
 				frontier = Client.getState(visitngNode.getId()).get().getNeighbors();
+				count++;
 				for (State neighbor : frontier) {
 					Optional<DTO> opt = Client.stateTransition(visitngNode.getId(), neighbor.getId());
 					csula.cs4660.quizes.models.Event event = opt.get().getEvent();
@@ -328,7 +332,7 @@ public class App {
 			parent = previousNode.get(visitngNode);		
 			depth++;
 		}	
-		
+		System.out.println("Total Request"+count);
 		System.out.println(depth);
 		System.out.println(effect);
 		Collections.reverse(resultSet);
